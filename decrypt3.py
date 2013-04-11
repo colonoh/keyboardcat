@@ -68,16 +68,13 @@ def decrypt3(ciphertext, wordlist):
   
 def read_words():
   wordlist = Trie()
-  wordfile = open('wordlist.txt', 'r', encoding='utf-8')
+  wordfile = open('wordlist.txt', 'r')
   # add the words from the dictionary to the trie
   #for line in wordfile:
-  with open(r'wordlist.txt') as f:
-    for line in f:
-      wordlist.add(str(line).strip().lower())
     # get rid of newlines and force lowercase
     #line = str(line).strip().lower()
     #wordlist.add(str(line).strip().lower())
-  #[wordlist.add(str(line).strip().lower()) for line in wordfile]
+  [wordlist.add(str(line).strip().lower()) for line in wordfile]
   wordfile.close()
   print("Wordlist created.")
   return wordlist
